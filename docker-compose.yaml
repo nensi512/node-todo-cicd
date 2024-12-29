@@ -1,7 +1,17 @@
-version: '3.9'
+version: '3'
 
 services:
-  web:
-    image: trainwithshubham/node-app:latest
+  app:
+    build: .
+    container_name: node-app
     ports:
-      - "8000:8000"
+      - "3000:3000"  # Map port 3000 on the host to port 3000 on the container
+    volumes:
+      - ./app:/usr/src/app  # Mount the local app directory to the container for live code changes
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
