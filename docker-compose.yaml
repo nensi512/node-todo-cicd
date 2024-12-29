@@ -5,13 +5,6 @@ services:
     build: .
     container_name: node-app
     ports:
-      - "3000:3000"  # Map port 3000 on the host to port 3000 on the container
-    volumes:
-      - ./app:/usr/src/app  # Mount the local app directory to the container for live code changes
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
+      - "8000:80000"  # Map port 3000 on the host to port 3000 on the container
+    
 
